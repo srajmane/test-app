@@ -1,0 +1,6 @@
+helm_chart_name: test-app
+helm_chart_version: "0.1.0"
+helm_release_name: test-app-release
+kube_namespace: default
+helm_chart_path: "../../test-app"
+kube_context: ""
