@@ -1,0 +1,23 @@
+---
+- name: Deploy Helm Chart using Ansible
+  hosts: localhost
+  gather_facts: false
+
+  tasks:
+    - name: Install the Helm chart
+      community.kubernetes.helm:
+        name: test-app-release
+        chart_ref: stable/test-app 
+        namespace: default          
+        release_state: present        
+        values:                    
+          controller:
+            replicaCount: 2
+            service:
+              type: ClusterIP
+        wait: true
+      register: helm_result
+
+    - name: Show Helm deployment result
+      debug:
+        var: helm_result
