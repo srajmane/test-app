@@ -1,0 +1,22 @@
+# Test app container image and tag
+image:
+  repository: docker-repo/test-app
+  tag: "latest"
+  pullPolicy: IfNotPresent
+
+# Service details
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 5000
+
+replicaCount: 2
+
+# Resource requests and limits
+resources:
+  limits:
+    cpu: 100m
+    memory: 128Mi
+  requests:
+    cpu: 100m
+    memory: 128Mi
